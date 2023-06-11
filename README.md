@@ -12,4 +12,3 @@
 ### Usage:
     file-filter file.in --tags tag1 [tag2 tag3...] [-o filtered-file.out]
     file-filter --help
-    file-filter --version
