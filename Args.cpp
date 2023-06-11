@@ -11,9 +11,9 @@ namespace FileFilter {
 
 void Args::parse(int argc, const char* argv[])
 {
-    if (argc < 4)
+    if (argc < 3)
     {
-        throw std::invalid_argument("wrong usage : try file-info --help");
+        throw std::invalid_argument("wrong usage: file-filter file.in --tags tag1[tag2 tag3...] [-o filtered - file.out]");
     }
 
     input_file_path = argv[1];
