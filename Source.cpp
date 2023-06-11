@@ -1,17 +1,12 @@
 #include <iostream>
+#include <fstream>
 
-#include "Tag.hpp"
+#include "Args.hpp"
 
 using namespace std::literals::string_view_literals;
 
-int main(int argc, char* argv[])
+int main(int argc, const char* argv[])
 {
-    if (argc == 1)
-    {
-        std::cout << "wrong usage: try file-info --help" << std::endl;
-        return EXIT_FAILURE;
-    }
-
     if (argv[1] == "--help"sv)
     {
         std::cout << "file-filter file.in --tags tag1 [tag2 tag3...] [-o filtered-file.out]" << std::endl;
@@ -20,8 +15,16 @@ int main(int argc, char* argv[])
         return EXIT_SUCCESS;
     }
 
-    FileFilter::Tag pattern("ana");
-    std::cout << std::boolalpha << pattern.match("xD anda are mere") << std::endl;
+    FileFilter::Args args{};
+    try
+    {
+        args.parse(argc, argv);
+    }
+    catch (std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
 
     return EXIT_SUCCESS;
 }
