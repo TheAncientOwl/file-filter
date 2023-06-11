@@ -1,5 +1,4 @@
 ## File-Filter v1.0
-#
 
 ### Tech: C++17
 
