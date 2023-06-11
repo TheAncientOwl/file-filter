@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <string_view>
 #include <string>
 #include <vector>
@@ -17,6 +18,7 @@ public:
 
 public:
     bool match(std::string_view str) const;
+    friend std::ostream& operator<<(std::ostream& out, const Tag& tag);
 
 private:
     void setupLps(std::string_view pattern);

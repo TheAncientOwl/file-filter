@@ -77,4 +77,11 @@ bool Tag::match(std::string_view str) const
     return false;
 }
 
+std::ostream& operator<<(std::ostream& out, const Tag& tag)
+{
+    out << tag.m_pattern;
+
+    return out;
+}
+
 } // namespace FileFilter
