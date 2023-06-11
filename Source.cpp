@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "Tag.hpp"
+
 using namespace std::literals::string_view_literals;
 
 int main(int argc, char* argv[])
@@ -17,6 +19,9 @@ int main(int argc, char* argv[])
         std::cout << "file-filter --version" << std::endl;
         return EXIT_SUCCESS;
     }
+
+    FileFilter::Tag pattern("ana");
+    std::cout << std::boolalpha << pattern.match("xD anda are mere") << std::endl;
 
     return EXIT_SUCCESS;
 }
