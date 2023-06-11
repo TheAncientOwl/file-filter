@@ -13,7 +13,7 @@ void Args::parse(int argc, const char* argv[])
 {
     if (argc < 4)
     {
-        throw std::invalid_argument("wrong usage : try file - info --help");
+        throw std::invalid_argument("wrong usage : try file-info --help");
     }
 
     input_file_path = argv[1];
