@@ -15,6 +15,13 @@ class Tag
 {
 public:
     Tag(std::string_view pattern);
+    ~Tag() = default;
+
+    Tag(const Tag&) = delete;
+    Tag& operator=(const Tag&) = delete;
+
+    Tag(Tag&&) noexcept = default;
+    Tag& operator=(Tag&&) noexcept = default;
 
 public:
     bool match(std::string_view str) const;
